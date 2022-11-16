@@ -10,4 +10,6 @@ RUN npm i
 
 EXPOSE 8080/tcp
 
-CMD npm run dev -- -- --api-listen-addr 0.0.0.0:8080
+ARG DBURI="sqlite://.chiseld.db?mode=rwc"
+
+CMD npm run dev -- -- --db-uri ${DBURI} --api-listen-addr 0.0.0.0:8080
